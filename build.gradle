@@ -29,4 +29,7 @@ sourceSets {
     }
 }
 
+applicationName = 'shino'
 mainClassName = 'info.vividcode.morphana.InteractiveMorphAnaApp'
+// NOTICE.txt file is included in distribution
+applicationDistribution.from(file('NOTICE.txt'))
