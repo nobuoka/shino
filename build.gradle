@@ -1,0 +1,32 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'eu.appsatori:gradle-fatjar-plugin:0.2-rc1'
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'application'
+
+repositories {
+    maven {
+        // Atilika Open Source repository (for kuromoji)
+        url "http://www.atilika.org/nexus/content/repositories/atilika"
+    }
+}
+
+dependencies {
+    compile group: 'org.atilika.kuromoji', name: 'kuromoji', version: '0.7.7'
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src', 'modules/wscutils/src']
+        }
+    }
+}
+
+mainClassName = 'info.vividcode.morphana.InteractiveMorphAnaApp'
